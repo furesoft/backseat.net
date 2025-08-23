@@ -34,7 +34,7 @@ public class BackseatParser : Parser
         def.Register("(", new CallParselet(def.PrecedenceLevels.GetPrecedence("Call")));
         def.Register(PredefinedSymbols.Name, new NameParselet());
 
-        def.Block(PredefinedSymbols.SOF, PredefinedSymbols.EOF);
+        def.Block(PredefinedSymbols.SOF, PredefinedSymbols.EOF, ";");
 
         def.Block("{", "}",
             PredefinedSymbols.EOL);

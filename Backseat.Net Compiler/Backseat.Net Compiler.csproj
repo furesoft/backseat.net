@@ -10,14 +10,20 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Parsing\AST\" />
       <Folder Include="Parsing\Parselets\" />
     </ItemGroup>
 
     <ItemGroup>
+      <PackageReference Include="LanguageSdk.Templates.Core" Version="2.0.0" />
       <PackageReference Include="Silverfly" Version="1.2.0" />
       <PackageReference Include="Silverfly.Backend" Version="1.2.0" />
       <PackageReference Include="Spectre.Console.Cli" Version="0.50.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="source.bs">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
 
 </Project>

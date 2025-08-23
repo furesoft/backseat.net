@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Backseat.Net Compiler")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+698637c46103945806461bd98cac9fcc8581fcfc")]
 [assembly: System.Reflection.AssemblyProductAttribute("Backseat.Net Compiler")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Backseat.Net Compiler")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
