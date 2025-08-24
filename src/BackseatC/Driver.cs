@@ -30,6 +30,11 @@ public class Driver
 
     public static Driver Create(DriverSettings settings)
     {
+        if(string.IsNullOrEmpty(settings.RootNamespace))
+        {
+            settings.RootNamespace = "Test";
+        }
+
         var moduleResolver = new ModuleResolver();
         moduleResolver.AddTrustedSearchPaths();
 
