@@ -85,7 +85,7 @@ public class CallExpressionListener(bool shouldEmit) : Listener<BodyCompilation,
                 (p, a) => p.Type.IsAssignableTo(a.ResultType)).All(x => x)).ToArray();
     }
 
-    protected override bool ShouldListenToChildren(BodyCompilation context, AstNode node)
+    protected override bool ShouldListenToChildren(BodyCompilation context, CallNode node)
     {
         return false;
     }

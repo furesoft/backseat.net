@@ -2,7 +2,6 @@
 using System.Runtime.Versioning;
 using BackseatC.CodeGeneration;
 using BackseatC.CodeGeneration.Listeners.Body;
-using BackseatC.CodeGeneration.Scoping;
 using BackseatC.Parsing;
 using DistIL;
 using DistIL.AsmIO;
@@ -11,6 +10,7 @@ using DistIL.IR.Utils;
 using Silverfly.Text;
 using LanguageSdk.Templates.Core;
 using Silverfly;
+using Silverfly.Backend.Scoping;
 using MethodBody = DistIL.IR.MethodBody;
 
 namespace BackseatC;
@@ -53,10 +53,12 @@ public class Driver
 
     public SourceDocument[] Compile()
     {
+        var parsers = new List<BackseatParser>();
         foreach (var source in Settings.Sources)
         {
             var document = SourceDocument.Create(source);
             var parser = new BackseatParser();
+            parsers.Add(parser);
 
             Trees.Add(parser.Parse(document));
         }
@@ -82,9 +84,21 @@ public class Driver
 
         mainMethod.ILBody = DistIL.CodeGen.Cil.ILGenerator.GenerateCode(mainMethod.Body);
 
-        Compilation.Module.Save("test.dll", false);
+
 
         //bindingContext.Optimizer.Run(Mappings.Functions.Values);
+
+        foreach (var parser in parsers)
+        {
+            parser.PrintMessages();
+        }
+
+        if (!parsers.Any(_ => _.Document.HasErrors))
+        {
+            Compilation.Module.Save("test.dll", false);
+            Environment.Exit(100);
+        }
+
         return Trees
             .Select(_ => _.Document)
             .ToArray();

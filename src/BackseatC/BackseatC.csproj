@@ -12,9 +12,9 @@
   <ItemGroup>
     <PackageReference Include="CommandLineParser" Version="2.9.1" />
     <PackageReference Include="DistIL.Core" Version="0.13.0-preview" />
-    <PackageReference Include="Silverfly" Version="1.2.0" />
+    <PackageReference Include="Silverfly" Version="1.6.0" />
     <PackageReference Include="LanguageSdk.Templates.Core" Version="2.0.0" />
-    <PackageReference Include="Silverfly.Backend" Version="1.2.0" />
+    <PackageReference Include="Silverfly.Backend" Version="1.6.0" />
   </ItemGroup>
 
   <ItemGroup>

@@ -12,7 +12,7 @@ public static class Program
             {
                 var driver = Driver.Create(options);
 
-                driver.Compile();
+                _ = driver.Compile();
             })
             .WithNotParsed(errors =>
             {
