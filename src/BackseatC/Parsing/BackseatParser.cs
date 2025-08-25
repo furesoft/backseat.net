@@ -13,7 +13,7 @@ public class BackseatParser : Parser
         lexer.IgnoreCasing = true;
         lexer.AddKeywords("function", "true", "false", "Function", "and", "or", "not", "if", "else", "loop", "break", "continue", "while", "do", "for", "mutable", "const", "nothing", "return");
         lexer.AddSymbols("==", "!=", ">", "<", "<=", ">=");
-        lexer.AddSymbols("/*", "*/", "//", "\"", "~>", "+", "-", "*", "/", "'", ";");
+        lexer.AddSymbols("/*", "*/", "//", "\"", "~>", "+", "-", "*", "/", ";");
 
         lexer.IgnoreWhitespace();
         lexer.UseNameAdvancer(new CStyleNameAdvancer());
