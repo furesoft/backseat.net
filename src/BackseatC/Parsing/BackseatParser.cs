@@ -36,7 +36,6 @@ public class BackseatParser : Parser
 
         def.Block(PredefinedSymbols.SOF, PredefinedSymbols.EOF, ";");
 
-        def.Block("{", "}",
-            PredefinedSymbols.EOL);
+        def.Block("{", "}", PredefinedSymbols.EOL);
     }
 }
