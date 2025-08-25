@@ -15,15 +15,15 @@ public class BackseatParser : Parser
         lexer.AddSymbols("==", "!=", ">", "<", "<=", ">=");
         lexer.AddSymbols("/*", "*/", "//", "\"", "~>", "+", "-", "*", "/", ";");
 
-        lexer.IgnoreWhitespace();
         lexer.UseNameAdvancer(new CStyleNameAdvancer());
         lexer.MatchString("\"", "\"");
 
-        lexer.Ignore(new SingleLineCommentIgnoreMatcher("//"));
-        lexer.Ignore(new MultiLineCommentIgnoreMatcher("/*", "*/"));
-
         //Todo: replace NumberMatcher with custom algorithm to match with backseat number rules
         lexer.AddMatcher(new NumberMatcher(allowHex: false, allowBin: false, floatingPointSymbol: ".", seperatorSymbol: "'"));
+
+        lexer.IgnoreWhitespace();
+        lexer.Ignore(new SingleLineCommentIgnoreMatcher("//"));
+        lexer.Ignore(new MultiLineCommentIgnoreMatcher("/*", "*/"));
     }
 
     protected override void InitParser(ParserDefinition def)
