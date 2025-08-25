@@ -23,7 +23,7 @@ public class BackseatParser : Parser
         lexer.Ignore(new MultiLineCommentIgnoreMatcher("/*", "*/"));
 
         //Todo: replace NumberMatcher with custom algorithm to match with backseat number rules
-        lexer.AddMatcher(new NumberMatcher(false, false, ".", "'"));
+        lexer.AddMatcher(new NumberMatcher(allowHex: false, allowBin: false, ".", "'"));
     }
 
     protected override void InitParser(ParserDefinition def)
