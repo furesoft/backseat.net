@@ -11,7 +11,7 @@ public class BackseatParser : Parser
     protected override void InitLexer(LexerConfig lexer)
     {
         lexer.IgnoreCasing = true;
-        lexer.AddKeywords("function", "true", "false", "Function", "and", "or", "not", "if", "else", "loop", "break", "continue", "while", "do", 
+        lexer.AddKeywords("function", "true", "false", "and", "or", "not", "if", "else", "loop", "break", "continue", "while", "do", 
                           "for", "mutable", "const", "nothing", "return");
         lexer.AddSymbols("==", "!=", ">", "<", "<=", ">=");
         lexer.AddSymbols("/*", "*/", "//", "\"", "~>", "+", "-", "*", "/", ";");
@@ -24,7 +24,6 @@ public class BackseatParser : Parser
 
         lexer.IgnoreWhitespace();
         lexer.Ignore(new SingleLineCommentIgnoreMatcher("//"));
-        lexer.Ignore(new MultiLineCommentIgnoreMatcher("/*", "*/"));
     }
 
     protected override void InitParser(ParserDefinition def)
