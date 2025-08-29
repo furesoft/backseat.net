@@ -5,3 +5,12 @@ An implementation of the [backseat](https://github.com/mgerhold/backseat-interpr
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ![Discord](https://img.shields.io/discord/455738571186241536)
 [![](https://tokei.rs/b1/github/furesoft/backseat.net)](https://github.com/furesoft/backseat.net)
+
+# getting started
+1. clone this repository
+2. build the compiler with `dotnet build`
+3. `backseatc source.bs`
+ 
+
+# technologies used
+This compiler is written in C# and used the [Silverfly](https://github.com/furesoft/Silverfly) framework to easily build the parser. [DistIL](https://github.com/dubiousconst282/DistIL) is used for CIL generation.
