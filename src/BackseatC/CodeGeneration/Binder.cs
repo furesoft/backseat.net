@@ -1,4 +1,4 @@
-﻿using BackseatC.CodeGeneration.Listeners;
+using BackseatC.CodeGeneration.Listeners;
 using MrKWatkins.Ast.Listening;
 using Silverfly.Nodes;
 
@@ -11,5 +11,4 @@ public class Binder
         .With(new BlockListener())
 
         .ToListener();
-
 }
