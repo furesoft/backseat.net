@@ -12,6 +12,11 @@ public static class Utils
     {
         if (astNode is LiteralNode literal)
         {
+            if (literal.Value is ulong uv) //Todo: remove when upgradet to newsest silvlerfly
+            {
+                return ConstInt.CreateL((long)uv);
+            }
+
             return literal.ToConstant()!;
         }
 
