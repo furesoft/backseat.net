@@ -3,7 +3,7 @@ using Silverfly.Nodes;
 
 namespace BackseatC.Binding.AST;
 
-public class BoundCallStatement : AstNode
+public class BoundCallStatement : BoundStatement
 {
     public required MethodDesc Method { get; set; }
 }

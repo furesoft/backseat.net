@@ -2,7 +2,7 @@
 using MrKWatkins.Ast.Listening;
 using Silverfly.Nodes;
 
-namespace BackseatC.CodeGeneration;
+namespace BackseatC.Binding;
 
 public class Binder
 {

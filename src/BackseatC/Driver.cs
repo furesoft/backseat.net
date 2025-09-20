@@ -1,7 +1,6 @@
 ﻿using System.Reflection;
 using System.Runtime.Versioning;
 using BackseatC.CodeGeneration;
-using BackseatC.CodeGeneration.Listeners.Body;
 using BackseatC.Parsing;
 using DistIL;
 using DistIL.AsmIO;
@@ -11,6 +10,7 @@ using Silverfly.Text;
 using LanguageSdk.Templates.Core;
 using Silverfly;
 using Silverfly.Backend.Scoping;
+using Silverfly.Nodes;
 using MethodBody = DistIL.IR.MethodBody;
 
 namespace BackseatC;
@@ -79,7 +79,11 @@ public class Driver
         foreach (var tu in Trees)
         {
             // Binder.Listener.Listen(bindingContext, tu.Tree);
-            BodyCompilation.Listener.Listen(new(this, mainMethod, mainBuilder, new Scope(null)), tu.Tree);
+            var context = new BodyCompilation(this, mainMethod, mainBuilder, new Scope(null));
+            foreach (var node in ((BlockNode)tu.Tree).Children)
+            {
+                Utils.CreateValue(node, context);
+            }
         }
 
         if (mainMethod.Body.EntryBlock.Last is not ReturnInst)
@@ -88,8 +92,6 @@ public class Driver
         }
 
         mainMethod.ILBody = DistIL.CodeGen.Cil.ILGenerator.GenerateCode(mainMethod.Body);
-
-
 
         //bindingContext.Optimizer.Run(Mappings.Functions.Values);
 
