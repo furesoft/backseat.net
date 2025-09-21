@@ -14,7 +14,7 @@ public class BackseatParser : Parser
         lexer.AddKeywords("function", "Function", "true", "false", "and", "or", "not", "if", "else", "loop", "break", "continue", "while", "do", 
                           "for", "mutable", "const", "nothing", "return");
         lexer.AddSymbols("==", "!=", ">", "<", "<=", ">=");
-        lexer.AddSymbols("/*", "*/", "//", "\"", "~>", "+", "-", "*", "/", ";");
+        lexer.AddSymbols("/*", "*/", "//", "\"", "~>", "+", "-", "*", "/", ";", "(", ")", "{", "}");
 
         lexer.UseNameAdvancer(new CStyleNameAdvancer());
         lexer.MatchString("\"", "\"");
@@ -30,6 +30,8 @@ public class BackseatParser : Parser
     {
         def.AddCommonLiterals();
         def.AddArithmeticOperators();
+
+        def.Group("(", ")");
 
         def.Register("(", new CallParselet(def.PrecedenceLevels.GetPrecedence("Call")));
         def.Register(PredefinedSymbols.Name, new NameParselet());

@@ -30,6 +30,11 @@ public static class Utils
             if (CreateCall(context, call, out var value)) return value!;
         }
 
+        if (astNode is GroupNode group)
+        {
+            return CreateValue(group.Expr, context);
+        }
+
         return new Undef(PrimType.Void);
     }
 

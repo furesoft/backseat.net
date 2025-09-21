@@ -78,7 +78,6 @@ public class Driver
 
         foreach (var tu in Trees)
         {
-            // Binder.Listener.Listen(bindingContext, tu.Tree);
             var context = new BodyCompilation(this, mainMethod, mainBuilder, new Scope(null));
             foreach (var node in ((BlockNode)tu.Tree).Children)
             {
