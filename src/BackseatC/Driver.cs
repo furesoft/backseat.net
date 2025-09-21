@@ -92,7 +92,7 @@ public class Driver
 
         mainMethod.ILBody = DistIL.CodeGen.Cil.ILGenerator.GenerateCode(mainMethod.Body);
 
-        //bindingContext.Optimizer.Run(Mappings.Functions.Values);
+        Optimizer.Run(Mappings.Functions.Values);
 
         foreach (var parser in parsers)
         {
@@ -102,7 +102,7 @@ public class Driver
         if (!parsers.Any(_ => _.Document.HasErrors))
         {
             Compilation.Module.Save("test.dll", false);
-            Environment.Exit(100);
+            Environment.Exit(0);
         }
 
         return Trees
