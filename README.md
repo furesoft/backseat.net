@@ -13,4 +13,4 @@ An implementation of the [backseat](https://github.com/mgerhold/backseat-interpr
  
 
 # technologies used
-This compiler is written in C# and used the [Silverfly](https://github.com/furesoft/Silverfly) framework to easily build the parser. [DistIL](https://github.com/dubiousconst282/DistIL) is used for CIL generation.
+This compiler is written in C# and used the [Silverfly](https://github.com/furesoft/Silverfly) framework to build the parser. [DistIL](https://github.com/dubiousconst282/DistIL) is used for CIL generation.
